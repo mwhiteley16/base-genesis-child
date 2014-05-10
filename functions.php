@@ -51,8 +51,8 @@ function genesis_do_new_footer() {
 }
 
 //Stop wordpress from wrapping everything in paragraph tags
-remove_filter( 'the_content', 'wpautop' );
-remove_filter( 'the_excerpt', 'wpautop' );
+//remove_filter( 'the_content', 'wpautop' );
+//remove_filter( 'the_excerpt', 'wpautop' );
 
 //Remove default genesis sidebar
 remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
