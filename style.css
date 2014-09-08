@@ -47,6 +47,9 @@ a:hover {
 	-moz-box-sizing: border-box; 
 	box-sizing: border-box;
 }
+img {
+	border: none;
+}
 
 /*** for WP WYSIWYG image alignment ***/
 img.alignleft {
