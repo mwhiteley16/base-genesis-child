@@ -56,9 +56,6 @@ function genesis_do_new_footer() {
 
 //Remove default genesis sidebar
 remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
-
-//Remove default genesis sidebar
-remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 unregister_sidebar( 'header-right' );
 unregister_sidebar( 'sidebar' );
 unregister_sidebar( 'sidebar-alt' );
