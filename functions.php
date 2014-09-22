@@ -34,6 +34,7 @@ function mw_load_scripts() {
 add_action( 'wp_enqueue_scripts', 'mw_enqueue_google_fonts' );
 function mw_enqueue_google_fonts() {
      wp_enqueue_style( 'google-font-open-sans', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,700,800,600', array(), CHILD_THEME_VERSION );
+     //wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION );
 }
 
 //Remove default Genesis page templates (they are no good and I will never use them and they confuse clients...)
@@ -73,8 +74,8 @@ function genesis_do_new_footer() {
 //remove_filter( 'the_content', 'wpautop' );
 //remove_filter( 'the_excerpt', 'wpautop' );
 
-// Adding custom Favicon (only use if favicon not added natively)
+// Adding custom Favicon
 //add_filter( 'genesis_pre_load_favicon', 'custom_favicon' );
 //function custom_favicon( $favicon_url ) {
-//	return 'urltofavicon';
+//	return get_stylesheet_directory_uri().'/images/favicon.ico';
 //}
