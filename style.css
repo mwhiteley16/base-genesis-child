@@ -13,7 +13,6 @@
  * Gutter: 15px
  * Link: http://www.billerickson.net/column-class-generator/
 */
-
 .five-sixths,
 .four-sixths,
 .four-fifths,
@@ -32,55 +31,43 @@
 	float: left;
 	margin-left: 1.5%;
 }
- 
-.one-half,
+ .one-half,
 .three-sixths,
 .two-fourths {
 	width: 49.25%;
 }
- 
-.one-third,
+ .one-third,
 .two-sixths {
 	width: 32.333333333333%;
 }
- 
 .four-sixths,
 .two-thirds {
 	width: 66.166666666667%;
 }
- 
 .one-fourth {
 	width: 23.875%;
 }
- 
 .three-fourths {
 	width: 74.625%;
 }
- 
 .one-fifth {
 	width: 18.8%;
 }
- 
 .two-fifths {
 	width: 39.1%;
 }
- 
 .three-fifths {
 	width: 59.4%;
 }
- 
 .four-fifths {
 	width: 79.7%;
 }
- 
 .one-sixth {
 	width: 15.416666666667%;
 }
- 
 .five-sixths {
 	width: 83.083333333333%;
 }
- 
 .first {
 	clear: both;
 	margin-left: 0;
