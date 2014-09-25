@@ -14,7 +14,7 @@ Template Name: Base Page Template
 
                <article class="main-content <?php echo the_title(); ?>">    
           
-                    <h1 class="page-header"><span><?php the_title(); ?></span></h1>
+                    <h1 class="page-header"><?php the_title(); ?></h1>
 
                     <div class="page-content">
                          <?php the_content(); ?>
