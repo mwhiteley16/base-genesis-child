@@ -79,3 +79,17 @@ function genesis_do_new_footer() {
 //function custom_favicon( $favicon_url ) {
 //	return get_stylesheet_directory_uri().'/images/favicon.ico';
 //}
+
+//* Remove comment form allowed tags
+add_filter( 'comment_form_defaults', 'bg_remove_comment_form_allowed_tags' );
+function bg_remove_comment_form_allowed_tags( $defaults ) {
+	$defaults['comment_notes_after'] = '';
+	return $defaults;
+}
+
+//* Remove site layouts
+genesis_unregister_layout( 'content-sidebar' );
+genesis_unregister_layout( 'sidebar-content' );
+genesis_unregister_layout( 'content-sidebar-sidebar' );
+genesis_unregister_layout( 'sidebar-sidebar-content' );
+genesis_unregister_layout( 'sidebar-content-sidebar' );
