@@ -121,6 +121,11 @@ img {
 iframe {
 	max-width: 100%;
 }
+input,
+textarea {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
 
 /*** for WP WYSIWYG image alignment ***/
 img.alignleft {
