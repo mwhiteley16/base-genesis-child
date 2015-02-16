@@ -112,41 +112,19 @@ function wd_genesis_seo_meta_description() {
 		//* All-in-One SEO Pack (latest, vestigial)
 		elseif ( genesis_get_custom_field( '_aioseop_description' ) )
 			$description = genesis_get_custom_field( '_aioseop_description' );
-		//* Headspace2 (vestigial)
-		elseif ( genesis_get_custom_field( '_headspace_description' ) )
-			$description = genesis_get_custom_field( '_headspace_description' );
-		//* Thesis (vestigial)
-		elseif ( genesis_get_custom_field( 'thesis_description' ) )
-			$description = genesis_get_custom_field( 'thesis_description' );
-		//* All-in-One SEO Pack (old, vestigial)
-		elseif ( genesis_get_custom_field( 'description' ) )
-			$description = genesis_get_custom_field( 'description' );
 	}
 	if ( is_category() ) {
 		//$term = get_term( get_query_var('cat'), 'category' );
 		$term = $wp_query->get_queried_object();
 		$description = ! empty( $term->meta['description'] ) ? $term->meta['description'] : '';
 	}
-	if ( is_tag() ) {
-		//$term = get_term( get_query_var('tag_id'), 'post_tag' );
-		$term = $wp_query->get_queried_object();
-		$description = ! empty( $term->meta['description'] ) ? $term->meta['description'] : '';
-	}
-	if ( is_tax() ) {
-		$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-		$description = ! empty( $term->meta['description'] ) ? wp_kses_stripslashes( wp_kses_decode_entities( $term->meta['description'] ) ) : '';
-	}
-	if ( is_author() ) {
-		$user_description = get_the_author_meta( 'meta_description', (int) get_query_var( 'author' ) );
-		$description = $user_description ? $user_description : '';
-	}
 	if ( is_post_type_archive() && genesis_has_post_type_archive_support() ) {
 		$description = genesis_get_cpt_option( 'description' ) ? genesis_get_cpt_option( 'description' ) : '';
 	}
 	//* If there is no description specified, used the home description by default
-     if ( empty( $description ) ) {
-          $description = genesis_get_seo_option( 'home_description' ) ? genesis_get_seo_option( 'home_description' ) : get_bloginfo( 'description' );
-     }
+        if ( empty( $description ) ) {
+             $description = genesis_get_seo_option( 'home_description' ) ? genesis_get_seo_option( 'home_description' ) : get_bloginfo( 'description' );
+        }
 	//* Add the description if one exists
 	if ( $description )
 		echo '<meta name="description" content="' . esc_attr( $description ) . '" />' . "\n";
