@@ -150,3 +150,7 @@ function wd_genesis_seo_meta_description() {
 	if ( $description )
 		echo '<meta name="description" content="' . esc_attr( $description ) . '" />' . "\n";
 }
+
+// Make sure editors can edit options page
+$EditorRole = get_role('editor');
+$EditorRole -> add_cap('manage_options');
