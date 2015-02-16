@@ -75,6 +75,7 @@ function genesis_do_new_footer() {
 //remove_filter( 'the_excerpt', 'wpautop' );
 
 // Adding custom Favicon
+remove_action(‘wp_head’, ‘genesis_load_favicon’);
 //add_filter( 'genesis_pre_load_favicon', 'custom_favicon' );
 //function custom_favicon( $favicon_url ) {
 //	return get_stylesheet_directory_uri().'/images/favicon.ico';
