@@ -95,12 +95,58 @@ genesis_unregister_layout( 'sidebar-sidebar-content' );
 genesis_unregister_layout( 'sidebar-content-sidebar' );
 
 // Add main site description on any page that doesn't have a customized description
-add_action( 'wp_head', 'wd_description' );
-function wd_description() {
-    global $post;
-    $home_description = genesis_get_seo_option( 'home_description' ) ? genesis_get_seo_option( 'home_description' ) : get_bloginfo( 'description' );
-    $page_description = genesis_get_custom_field( '_genesis_description' );
-    if( $page_description == '' ) {
-         echo '<meta name="description" content="' . esc_attr( $home_description ) . '" />' . "\n";
-    };
+remove_action( 'genesis_meta', 'genesis_seo_meta_description' );
+add_action( 'genesis_meta', 'wd_genesis_seo_meta_description' );
+function wd_genesis_seo_meta_description() {
+	global $wp_query;
+	$description = '';
+	//* If we're on the home page
+	if ( is_front_page() )
+		$description = genesis_get_seo_option( 'home_description' ) ? genesis_get_seo_option( 'home_description' ) : get_bloginfo( 'description' );
+	//* If we're on a single post / page / attachment
+	if ( is_singular() ) {
+		//* Description is set via custom field
+		if ( genesis_get_custom_field( '_genesis_description' ) )
+			$description = genesis_get_custom_field( '_genesis_description' );
+		//* All-in-One SEO Pack (latest, vestigial)
+		elseif ( genesis_get_custom_field( '_aioseop_description' ) )
+			$description = genesis_get_custom_field( '_aioseop_description' );
+		//* Headspace2 (vestigial)
+		elseif ( genesis_get_custom_field( '_headspace_description' ) )
+			$description = genesis_get_custom_field( '_headspace_description' );
+		//* Thesis (vestigial)
+		elseif ( genesis_get_custom_field( 'thesis_description' ) )
+			$description = genesis_get_custom_field( 'thesis_description' );
+		//* All-in-One SEO Pack (old, vestigial)
+		elseif ( genesis_get_custom_field( 'description' ) )
+			$description = genesis_get_custom_field( 'description' );
+	}
+	if ( is_category() ) {
+		//$term = get_term( get_query_var('cat'), 'category' );
+		$term = $wp_query->get_queried_object();
+		$description = ! empty( $term->meta['description'] ) ? $term->meta['description'] : '';
+	}
+	if ( is_tag() ) {
+		//$term = get_term( get_query_var('tag_id'), 'post_tag' );
+		$term = $wp_query->get_queried_object();
+		$description = ! empty( $term->meta['description'] ) ? $term->meta['description'] : '';
+	}
+	if ( is_tax() ) {
+		$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+		$description = ! empty( $term->meta['description'] ) ? wp_kses_stripslashes( wp_kses_decode_entities( $term->meta['description'] ) ) : '';
+	}
+	if ( is_author() ) {
+		$user_description = get_the_author_meta( 'meta_description', (int) get_query_var( 'author' ) );
+		$description = $user_description ? $user_description : '';
+	}
+	if ( is_post_type_archive() && genesis_has_post_type_archive_support() ) {
+		$description = genesis_get_cpt_option( 'description' ) ? genesis_get_cpt_option( 'description' ) : '';
+	}
+	//* If there is no description specified, used the home description by default
+     if ( empty( $description ) ) {
+          $description = genesis_get_seo_option( 'home_description' ) ? genesis_get_seo_option( 'home_description' ) : get_bloginfo( 'description' );
+     }
+	//* Add the description if one exists
+	if ( $description )
+		echo '<meta name="description" content="' . esc_attr( $description ) . '" />' . "\n";
 }
