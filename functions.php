@@ -93,3 +93,14 @@ genesis_unregister_layout( 'sidebar-content' );
 genesis_unregister_layout( 'content-sidebar-sidebar' );
 genesis_unregister_layout( 'sidebar-sidebar-content' );
 genesis_unregister_layout( 'sidebar-content-sidebar' );
+
+// Add main site description on any page that doesn't have a customized description
+add_action( 'wp_head', 'wd_description' );
+function wd_description() {
+    global $post;
+    $home_description = genesis_get_seo_option( 'home_description' ) ? genesis_get_seo_option( 'home_description' ) : get_bloginfo( 'description' );
+    $page_description = genesis_get_custom_field( '_genesis_description' );
+    if( $page_description == '' ) {
+         echo '<meta name="description" content="' . esc_attr( $home_description ) . '" />' . "\n";
+    };
+}
