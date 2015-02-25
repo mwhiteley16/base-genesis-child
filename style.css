@@ -142,3 +142,121 @@ img.aligncenter {
 	margin-right: auto;
 	display: block;
 }
+/***** Comments *****/
+.entry-comments {
+     float: left;
+     width: 100%;
+     border-top: 1px solid #ddd;
+     padding-top: 25px;
+}
+.entry-comments h3,
+#respond h3 {
+     font-style: italic;
+     font-size: 28px;
+     line-height: 28px;
+     margin-bottom: 6px;
+}
+.blog ol.comment-list {
+     float: left;
+     list-style-type: none;
+     width: 100%;
+     border: 1px solid #eee;
+     padding: 20px;
+}
+.blog ol.comment-list li {
+     float: left;
+     width: 100%;
+     border: 1px solid #eee;
+     padding-bottom: 20px;
+     background-color: rgba(0,0,0,0.025);
+}
+.blog ol.comment-list li header {
+     float: left;
+     width: 100%;
+     position: relative;
+     padding: 5px 0 0 60px;
+     height: 48px;
+     background-color: rgba(0,0,0,0.025);
+}
+.blog ol.comment-list li header img {
+     position: absolute;
+     top: 0;
+     left: 0;
+}
+.blog ol.comment-list li header p.comment-author {
+     float: left;
+     margin-right: 5px;
+}
+.blog ol.comment-list .comment-content,
+.blog ol.comment-list .comment-reply {
+     float: left;
+     width: 100%;
+     padding: 10px;
+}
+.blog ol.comment-list li ul.children {
+     list-style-type: none;
+     padding: 20px;
+     margin: 0;
+}
+a.comment-time-link {
+     display: none;  
+}
+#respond,
+#respond form#commentform {
+     float: left;
+     width: 100%;
+     margin-top: 15px;
+}
+#respond p.logged-in-as,
+#respond p.comment-form-comment {
+     float: left;
+     width: 100%;
+     margin-bottom: 10px;
+}
+#respond p.comment-form-comment label {
+     float: left;
+     width: 100%;
+     font-size: 18px;
+}
+#respond p.comment-notes {
+     float: left;
+     width: 100%;
+     margin-bottom: 10px;
+}
+#respond p.comment-form-author,
+#respond p.comment-form-email,
+#respond p.comment-form-url,
+#respond p.comment-form-comment {
+     float: left;
+     width: 100%;
+     margin-bottom: 7px;
+}
+#respond p.comment-form-author label,
+#respond p.comment-form-email label,
+#respond p.comment-form-url label {
+     float: left;
+     width: 8%;
+     margin-right: 10px;
+}
+#respond p.comment-form-author input,
+#respond p.comment-form-email input,
+#respond p.comment-form-url input,
+#respond p.comment-form-comment textarea {
+     border: none;
+     height: 35px;
+     padding: 5px;
+     width: 100%;
+     background-color: whitesmoke;
+}
+#respond p.comment-form-comment textarea {
+     height: 150px;
+     padding: 10px;
+}
+#respond input.submit {
+     float: left;
+     padding: 5px 20px;
+     border: none;
+}
+#respond input.submit:hover {
+     cursor: pointer;
+}
