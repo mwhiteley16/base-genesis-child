@@ -8,9 +8,9 @@ Template Name: Blog Page Template
 
 <section class="page-interior">
 
-     <div class="interior-wrap">
+     <div class="interior-wrap blog">
 
-          <h1 class="page-header">Blog, Tips & Tricks</h1>
+          <h1 class="page-header">Blog</h1>
 
           <?php $itemNum = 1; ?>
           <?php if (have_posts()) : while (have_posts()) : the_post();?>
