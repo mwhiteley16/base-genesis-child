@@ -2,7 +2,7 @@
 
 <section class="page-interior">
 
-     <div class="interior-wrap">
+     <div class="interior-wrap blog">
 
           <?php genesis_loop(); ?>
 
