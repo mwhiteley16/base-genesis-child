@@ -31,9 +31,9 @@ function mw_load_scripts() {
 }
 
 // Enqueue custom styles (google fonts, font-awesome, etc...)
-add_action( 'wp_enqueue_scripts', 'mw_enqueue_google_fonts' );
-function mw_enqueue_google_fonts() {
-     wp_enqueue_style( 'google-font-open-sans', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,700,800,600', array(), CHILD_THEME_VERSION );
+add_action( 'wp_enqueue_scripts', 'mw_enqueue_fonts' );
+function mw_enqueue_fonts() {
+     wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,700,800,600', array(), CHILD_THEME_VERSION );
      //wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION );
 }
 
@@ -44,7 +44,6 @@ function wd_remove_genesis_page_templates( $page_templates ) {
 	return $page_templates;
 }
 add_filter( 'theme_page_templates', 'wd_remove_genesis_page_templates' );
-
 
 //Remove default genesis sidebar
 remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
