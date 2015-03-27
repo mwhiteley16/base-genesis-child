@@ -7,12 +7,64 @@
 	Template: genesis
 */
 
-/* Column Classes
- *
- * Width: 1000px
- * Gutter: 15px
- * Link: http://www.billerickson.net/column-class-generator/
-*/
+/***** Universal *****/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+select,
+textarea,
+input {
+	color: #333;
+	font-family: 'Open Sans', Arial, Helvetica, Tahoma, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 22px;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+li,
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+}
+.site-inner ul,
+.site-inner ol {
+	margin-bottom: 15px;
+	padding-left: 40px;
+}
+a,
+a:visited {
+	color: #25a;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+*, *:before, *:after {
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+img {
+	border: none;
+	max-width: 100%;
+	height: auto;
+}
+iframe {
+	max-width: 100%;
+}
+input,
+textarea {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
 .five-sixths,
 .four-sixths,
 .four-fifths,
@@ -71,60 +123,6 @@
 .first {
 	clear: both;
 	margin-left: 0;
-}
-
-/***** Universal *****/
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-select,
-textarea,
-input {
-	color: #333;
-	font-family: 'Open Sans', Arial, Helvetica, Tahoma, sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 22px;
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-}
-li,
-ol,
-ul {
-	margin: 0;
-	padding: 0;
-}
-a,
-a:visited {
-	color: #25a;
-	text-decoration: none;
-}
-a:hover {
-	text-decoration: underline;
-}
-*, *:before, *:after {
-	-webkit-box-sizing: border-box; 
-	-moz-box-sizing: border-box; 
-	box-sizing: border-box;
-}
-img {
-	border: none;
-	max-width: 100%;
-	height: auto;
-}
-iframe {
-	max-width: 100%;
-}
-input,
-textarea {
-    -webkit-appearance: none;
-    -webkit-border-radius: 0;
 }
 
 /*** for WP WYSIWYG image alignment ***/
