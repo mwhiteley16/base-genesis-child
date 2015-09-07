@@ -68,18 +68,6 @@ function genesis_do_new_footer() {
      get_template_part( 'inc/footer' );
 }
 
-//Don't use this unless we really need to remove all the wrapping <p>'s WP creates
-//Stop wordpress from wrapping everything in paragraph tags
-//remove_filter( 'the_content', 'wpautop' );
-//remove_filter( 'the_excerpt', 'wpautop' );
-
-// Adding custom Favicon
-remove_action('wp_head', 'genesis_load_favicon');
-//add_filter( 'genesis_pre_load_favicon', 'custom_favicon' );
-//function custom_favicon( $favicon_url ) {
-//	return get_stylesheet_directory_uri().'/images/favicon.ico';
-//}
-
 //* Remove comment form allowed tags
 add_filter( 'comment_form_defaults', 'bg_remove_comment_form_allowed_tags' );
 function bg_remove_comment_form_allowed_tags( $defaults ) {
@@ -128,7 +116,3 @@ function wd_genesis_seo_meta_description() {
 	if ( $description )
 		echo '<meta name="description" content="' . esc_attr( $description ) . '" />' . "\n";
 }
-
-// Make sure editors can edit options page
-$EditorRole = get_role('editor');
-$EditorRole -> add_cap('manage_options');
