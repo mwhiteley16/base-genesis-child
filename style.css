@@ -11,9 +11,14 @@
 [ TABLE OF CONTENTS ]
 
 1.0  Universal
+     1.1 Typography
+     1.2 Headings
+     1.3 Main Content Containers
+     1.4 Comments
 
 ********************/
 /* ========== 1.0 UNIVERSAL ========== */
+/* ---------- 1.1 Typography ---------- */
 body,
 h1,
 h2,
@@ -53,7 +58,9 @@ a:visited {
 a:hover {
 	text-decoration: underline;
 }
-*, *:before, *:after {
+*, 
+*:before, 
+*:after {
 	-webkit-box-sizing: border-box; 
 	-moz-box-sizing: border-box; 
 	box-sizing: border-box;
@@ -71,6 +78,55 @@ textarea {
     -webkit-appearance: none;
     -webkit-border-radius: 0;
 }
+img.alignleft {
+	float: left;
+	padding: 0 15px 15px 0;
+}
+img.alignright {
+	float: right;
+	padding: 0 0 15px 15px;
+}
+img.aligncenter {
+	clear: both;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+/* ---------- 1.2 Headings ---------- */
+h1,
+h2,
+h3,
+h4,
+h5 {
+	color: #202526;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	line-height: 1.2;
+	margin: 0;
+	margin-bottom: 16px;
+	padding: 0;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+h4 {
+	font-size: 16px;
+}
+
+h5 {
+	font-size: 14px;
+}
+/* ---------- 1.3 Content Containers ---------- */
 .full-width,
 .five-sixths,
 .four-sixths,
@@ -135,23 +191,7 @@ textarea {
 	clear: both;
 	margin-left: 0;
 }
-
-/*** for WP WYSIWYG image alignment ***/
-img.alignleft {
-	float: left;
-	padding: 0 15px 15px 0;
-}
-img.alignright {
-	float: right;
-	padding: 0 0 15px 15px;
-}
-img.aligncenter {
-	clear: both;
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-}
-/***** Comments *****/
+/* ---------- 1.4 Comments ---------- */
 .entry-comments {
      float: left;
      width: 100%;
