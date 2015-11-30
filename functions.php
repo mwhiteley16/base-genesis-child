@@ -34,7 +34,7 @@ function mw_load_scripts() {
 add_action( 'wp_enqueue_scripts', 'mw_enqueue_fonts' );
 function mw_enqueue_fonts() {
      wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,700,800,600', array(), CHILD_THEME_VERSION );
-     //wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION );
+     wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION );
 }
 
 //Remove default Genesis page templates (they are no good and I will never use them and they confuse clients...)
@@ -81,38 +81,3 @@ genesis_unregister_layout( 'sidebar-content' );
 genesis_unregister_layout( 'content-sidebar-sidebar' );
 genesis_unregister_layout( 'sidebar-sidebar-content' );
 genesis_unregister_layout( 'sidebar-content-sidebar' );
-
-// Add main site description on any page that doesn't have a customized description
-remove_action( 'genesis_meta', 'genesis_seo_meta_description' );
-add_action( 'genesis_meta', 'wd_genesis_seo_meta_description' );
-function wd_genesis_seo_meta_description() {
-	global $wp_query;
-	$description = '';
-	//* If we're on the home page
-	if ( is_front_page() )
-		$description = genesis_get_seo_option( 'home_description' ) ? genesis_get_seo_option( 'home_description' ) : get_bloginfo( 'description' );
-	//* If we're on a single post / page / attachment
-	if ( is_singular() ) {
-		//* Description is set via custom field
-		if ( genesis_get_custom_field( '_genesis_description' ) )
-			$description = genesis_get_custom_field( '_genesis_description' );
-		//* All-in-One SEO Pack (latest, vestigial)
-		elseif ( genesis_get_custom_field( '_aioseop_description' ) )
-			$description = genesis_get_custom_field( '_aioseop_description' );
-	}
-	if ( is_category() ) {
-		//$term = get_term( get_query_var('cat'), 'category' );
-		$term = $wp_query->get_queried_object();
-		$description = ! empty( $term->meta['description'] ) ? $term->meta['description'] : '';
-	}
-	if ( is_post_type_archive() && genesis_has_post_type_archive_support() ) {
-		$description = genesis_get_cpt_option( 'description' ) ? genesis_get_cpt_option( 'description' ) : '';
-	}
-	//* If there is no description specified, used the home description by default
-        if ( empty( $description ) ) {
-             $description = genesis_get_seo_option( 'home_description' ) ? genesis_get_seo_option( 'home_description' ) : get_bloginfo( 'description' );
-        }
-	//* Add the description if one exists
-	if ( $description )
-		echo '<meta name="description" content="' . esc_attr( $description ) . '" />' . "\n";
-}
