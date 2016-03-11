@@ -1,8 +1,10 @@
 /*
-	Theme Name: Child theme Name
-	Description: Child theme of Genesis, by <a href="http://www.whiteleydesigns.com">Whiteley Designs</a>.
+	Theme Name: Child Theme Name
+	Description: Child Theme built with Genesis Framework by Whiteley Designs.
 	Author: Matt Whiteley
 	Author URI: http://whiteleydesigns.com
+	Version: 1.0.0
+	License: GPL-2.0+
 	
 	Template: genesis
 */
@@ -12,7 +14,7 @@
 
 1.0  Universal
      1.1 Typography
-     1.2 Headings
+     1.2 Misc
      1.3 Main Content Containers
      1.4 Comments
      1.5 Gravity Forms
@@ -20,11 +22,21 @@
 3.0  Footer
 4.0  Navigation
      4.1 Second Level Navigation
-     
+
 20.0 Responsive
+
+-------------
+Z-Index Stack
+-------------
+
 
 ********************/
 /* ========== 1.0 UNIVERSAL ========== */
+body,
+html {
+     height: 100%;
+     min-height: 100%;
+}
 /* ---------- 1.1 Typography ---------- */
 body,
 h1,
@@ -38,7 +50,7 @@ select,
 textarea,
 input {
 	color: #333;
-	font-family: 'Open Sans', Arial, Helvetica, Tahoma, sans-serif;
+	font-family: 'Roboto', Arial, Helvetica, Tahoma, sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 22px;
@@ -46,60 +58,6 @@ input {
 	padding: 0;
 	text-decoration: none;
 }
-li,
-ol,
-ul {
-	margin: 0;
-	padding: 0;
-}
-.site-inner ul,
-.site-inner ol {
-	margin-bottom: 15px;
-	padding-left: 40px;
-}
-a,
-a:visited {
-	color: #25a;
-	text-decoration: none;
-}
-a:hover {
-	text-decoration: underline;
-}
-*, 
-*:before, 
-*:after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box; 
-	box-sizing: border-box;
-}
-img {
-	border: none;
-	max-width: 100%;
-	height: auto;
-}
-iframe {
-	max-width: 100%;
-}
-input,
-textarea {
-     -webkit-appearance: none;
-     -webkit-border-radius: 0;
-}
-img.alignleft {
-	float: left;
-	padding: 0 15px 15px 0;
-}
-img.alignright {
-	float: right;
-	padding: 0 0 15px 15px;
-}
-img.aligncenter {
-	clear: both;
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-}
-/* ---------- 1.2 Headings ---------- */
 h1,
 h2,
 h3,
@@ -127,6 +85,65 @@ h4 {
 }
 h5 {
 	font-size: 14px;
+}
+li,
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+}
+.site-inner ul,
+.site-inner ol {
+	margin-bottom: 15px;
+	padding-left: 40px;
+}
+a,
+a:visited {
+	color: #25a;
+	text-decoration: none;
+     -webkit-transition: all 0.2s ease-in-out;
+     -moz-transition: all 0.2s ease-in-out;
+     -ms-transition: all 0.2s ease-in-out;
+     -o-transition: all 0.2s ease-in-out;
+     transition: all 0.2s ease-in-out;
+}
+a:hover {
+	text-decoration: underline;
+}
+/* ---------- 1.2 Misc ---------- */
+*,
+*:before, 
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+img.alignleft {
+	float: left;
+	padding: 0 15px 15px 0;
+}
+img.alignright {
+	float: right;
+	padding: 0 0 15px 15px;
+}
+img.aligncenter {
+	clear: both;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+img {
+	border: none;
+	max-width: 100%;
+	height: auto;
+}
+iframe {
+	max-width: 100%;
+}
+input,
+textarea {
+     -webkit-appearance: none;
+     -webkit-border-radius: 0;
 }
 /* ---------- 1.3 Content Containers ---------- */
 .full-width,
@@ -211,6 +228,11 @@ body,
      float: left;
      width: 100%;
 }
+.site-inner {
+     position: relative;
+     padding: 25px 0;
+     background-color: #fff;
+}
 /* ---------- 1.4 Comments ---------- */
 .entry-comments {
      float: left;
@@ -220,32 +242,37 @@ body,
 }
 .entry-comments h3,
 #respond h3 {
-     font-style: italic;
+     float: left;
+     width: 100%;
+     margin: 15px 0;
+     font-family: 'Playfair Display';
+     color: #000;
      font-size: 28px;
      line-height: 28px;
-     margin-bottom: 6px;
 }
 .blog ol.comment-list {
      float: left;
      list-style-type: none;
      width: 100%;
-     border: 1px solid #eee;
-     padding: 20px;
+     padding: 0;
+     margin: 15px 0;
 }
 .blog ol.comment-list li {
      float: left;
      width: 100%;
-     border: 1px solid #eee;
-     padding-bottom: 20px;
-     background-color: rgba(0,0,0,0.025);
+}
+.page-interior .interior-wrap ol.comment-list li article {
+     padding: 0;
+     border-bottom: 1px solid #eee;
+     margin-bottom: 20px;
 }
 .blog ol.comment-list li header {
      float: left;
      width: 100%;
      position: relative;
-     padding: 5px 0 0 60px;
+     padding: 0 0 0 60px;
      height: 48px;
-     background-color: rgba(0,0,0,0.025);
+     margin-bottom: 15px;
 }
 .blog ol.comment-list li header img {
      position: absolute;
@@ -255,26 +282,43 @@ body,
 .blog ol.comment-list li header p.comment-author {
      float: left;
      margin-right: 5px;
+     margin: 0 5px 0 0;
+     font-size: 18px;
+     line-height: 18px;
 }
 .blog ol.comment-list .comment-content,
 .blog ol.comment-list .comment-reply {
      float: left;
      width: 100%;
-     padding: 10px;
+}
+.blog ol.comment-list .comment-reply {
+     margin-bottom: 20px;
 }
 .blog ol.comment-list li ul.children {
      list-style-type: none;
-     padding: 20px;
+     padding: 20px 0 20px 20px;
      margin: 0;
 }
 a.comment-time-link {
-     display: none;  
+     clear: both;
+     float: left;
+     font-size: 16px;
+     color: #444;
+}
+a.comment-reply-link {
+     float: left;
+     background-color: #a8b6bf;
+     color: #fff;
+     padding: 3px 17px;
+}
+#respond {
+     padding: 0 0 25px;
+     border-top: 1px solid #ddd;
 }
 #respond,
 #respond form#commentform {
      float: left;
      width: 100%;
-     margin-top: 15px;
 }
 #respond p.logged-in-as,
 #respond p.comment-form-comment {
@@ -312,22 +356,36 @@ a.comment-time-link {
 #respond p.comment-form-url input,
 #respond p.comment-form-comment textarea {
      border: none;
-     height: 35px;
+     height: auto;
      padding: 5px;
      width: 100%;
-     background-color: whitesmoke;
+     background-color: #fff;
+     border: 1px solid #ddd;
+     font-size: 20px;
+     padding: 15px;
+}
+#respond p.comment-form-author input:focus,
+#respond p.comment-form-email input:focus,
+#respond p.comment-form-url input:focus,
+#respond p.comment-form-comment textarea:focus {
+     border: 1px solid #a8b6bf;
+     outline: none;
 }
 #respond p.comment-form-comment textarea {
      height: 150px;
-     padding: 10px;
+     padding: 15px;
 }
 #respond input.submit {
      float: left;
-     padding: 5px 20px;
+     padding: 10px 20px;
      border: none;
+     background-color: #a8b6bf;
+     color: #fff;
+     text-transform: uppercase;
 }
 #respond input.submit:hover {
      cursor: pointer;
+     background-color: #758188;
 }
 /* ---------- 1.5 Gravity Forms ---------- */
 div.gform_wrapper input[type="email"],
@@ -447,51 +505,78 @@ div.gform_wrapper .gform_footer .gform_button:hover {
      width: 100%;
      position: relative;
 }
-.header-logo-wrap {
-     float: left;
+.site-header .wrap {
+     max-width: 100%;
 }
 i.fa.mobile-menu-toggle {
      display: none;
 }
 /* ========== 3.0 FOOTER ========== */
+/* ---------- 3.2 Copyright ---------- */
 .site-footer {
      float: left;
      width: 100%;
      position: relative;
+     background-color: #222;
+     padding: 75px 0;
+     text-align: center;
 }
 /* ========== 4.0 NAVIGATION ========== */
-header ul.menu {
-     list-style-type: none;
-     float: right;
-} 
-header ul.menu li {
+nav.nav-primary {
      float: left;
-     margin: 0 15px;
-     position: relative;
-     height: 40px;
+     width: 100%;
+     height: 50px;
+     background-color: #fff;
+     border-bottom: 1px solid #ddd;
+     border-top: 1px solid #ddd;
 }
-header ul.menu li a {
+nav.nav-primary .wrap {
+     max-width: 100%;
+     padding-left: 15px;
+     padding-right: 15px;
+}
+nav ul.menu {
+     list-style-type: none;
+     float: left;
+     width: 100%;
+     text-align: center;
+} 
+nav ul.menu li {
+     float: none;
+     display: inline-block;
+     height: 50px;
+     line-height: 50px;
+     margin: 10px;
+}
+nav ul.menu li a {
      float: left;
      white-space: nowrap;
-     line-height: 40px;
+     line-height: 30px;
+     color: #222;
+     font-weight: 500;
+     font-size: 13px;
+}
+nav ul.menu li a:hover {
+     text-decoration: none;
 }
 /* ---------- 4.1 Second Level Navigation ---------- */
-header ul.menu li ul.sub-menu {
+nav ul.menu li ul.sub-menu {
      display: none;
      position: absolute;
      left: 0;
-     top: 40px;
+     top: 50px;
      list-style-type: none;
 }
-header ul.menu li ul.sub-menu li {
+nav ul.menu li ul.sub-menu li {
      margin: 0;
 }
-header ul.menu li ul.sub-menu li a {
+nav ul.menu li ul.sub-menu li a {
 
 }
-header ul.menu li.menu-item-has-children:hover > ul.sub-menu {
+nav ul.menu li.menu-item-has-children:hover > ul.sub-menu {
      display: block;
 }
+
 /* ========== 20.0 RESPONSIVE ========== */
 @media(max-width:700px) {
 i.fa.mobile-menu-toggle {
