@@ -5,7 +5,7 @@
  * @package      base-genesis-child
  * @since        1.0.0
  * @author       Matt Whiteley <matt@whiteleydesigns.com>
- * @copyright    Copyright (c) 2014, Matt Whiteley
+ * @copyright    Copyright (c) 2016, Matt Whiteley
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  *
  */
@@ -15,7 +15,7 @@ include_once( get_template_directory() . '/lib/init.php' );
 
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'Child Theme Name' );
-define( 'CHILD_THEME_URL', 'http://www.studiopress.com/' );
+define( 'CHILD_THEME_URL', 'http://whiteleydesigns.com/' );
 define( 'CHILD_THEME_VERSION', '1.0.0' );
 
 //* Add HTML5 markup structure
@@ -24,20 +24,56 @@ add_theme_support( 'html5' );
 //* Add viewport meta tag for mobile browsers
 add_theme_support( 'genesis-responsive-viewport' );
 
-//Ensure jQuery loads
-add_action('init', 'mw_load_scripts', 0);
-function mw_load_scripts() {
-	wp_enqueue_script('jquery');
+/* ====================
+
+GENERIC THEME FUNCTIONS
+
+==================== */
+
+//* GENERIC -- Ensure jQuery loads
+add_action('init', 'wd_load_scripts', 0);
+function wd_load_scripts() {
+	wp_enqueue_script( 'jquery' );
 }
 
-// Enqueue custom styles (google fonts, font-awesome, etc...)
-add_action( 'wp_enqueue_scripts', 'mw_enqueue_fonts' );
-function mw_enqueue_fonts() {
-     wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,700,800,600', array(), CHILD_THEME_VERSION );
+//* GENERIC -- Register & Enqueue Additional Scripts
+//add_action( 'wp_enqueue_scripts', 'wd_enqueue_lazyload' ) // Uncomment to enable lazyload;
+function wd_enqueue_lazyload() {
+     wp_register_script( 'jquery-lazyload', get_stylesheet_directory_uri() . '/js/jquery.lazyload.js', array('jquery'), '1.9.3', true );
+     wp_enqueue_script( 'jquery-lazyload' );
+}
+
+//* GENERIC -- Enqueue Custom Styles (google fonts, font-awesome, etc...)
+add_action( 'wp_enqueue_scripts', 'wd_enqueue_fonts' );
+function wd_enqueue_fonts() {
+     wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,700italic,700,500italic,400italic,500,300italic,300,100italic,100', array(), CHILD_THEME_VERSION );
      wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION );
 }
 
-//Remove default Genesis page templates (they are no good and I will never use them and they confuse clients...)
+//* GENERIC -- Enqueue Admin Stylesheets (ACF)
+//add_action( 'admin_enqueue_scripts', 'wd_enqueue_admin_style' ) // Uncomment to enqueue stylesheet for admin pages;
+function wd_enqueue_admin_style() {
+        wp_register_style( 'handle', get_stylesheet_directory_uri() . '/handle.css', false );
+        wp_enqueue_style( 'handle' );
+}
+
+//* GENERIC -- Register Custom Menu Locations
+//add_action( 'init', 'wd_register_menus' ) // Uncomment to register menu section(s);
+function wd_register_menus() {
+  register_nav_menus(
+    array(
+      'footer-menu' => __( 'Footer Menu' )
+    )
+  );
+}
+
+/* ====================
+
+GENESIS FUNCTIONS
+
+==================== */
+
+//* GENESIS -- Removed unused page templates
 function wd_remove_genesis_page_templates( $page_templates ) {
 	unset( $page_templates['page_archive.php'] );
 	unset( $page_templates['page_blog.php'] );
@@ -45,39 +81,71 @@ function wd_remove_genesis_page_templates( $page_templates ) {
 }
 add_filter( 'theme_page_templates', 'wd_remove_genesis_page_templates' );
 
-//Remove default genesis sidebar
+//* GENESIS -- Remove unused sidebars
 remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
 unregister_sidebar( 'header-right' );
-unregister_sidebar( 'sidebar' );
 unregister_sidebar( 'sidebar-alt' );
 unregister_sidebar( 'footer-1' );
 unregister_sidebar( 'footer-2' );
 unregister_sidebar( 'footer-3' );
 
-//Edit the header layout
+//* GENESIS -- Register Additional Sidebars
+//genesis_register_sidebar(array(
+//	'name'=>'Footer Widget',
+//	'id' => 'footer-widget',
+//	'description' => 'This widget area goes in the footer above the copyright information.  The widgets will be stacked vertically.',
+//	'before_widget' => '<div id="%1$s"><div class="widget %2$s">',
+//	'after_widget'  => "</div></div>\n",
+//	'before_title'  => '<h4><span>',
+//	'after_title'   => "</span></h4>\n"
+//));
+
+//* GENESIS -- Remove default header and replace with custom header
 remove_action( 'genesis_header', 'genesis_do_header' );
 add_action( 'genesis_header', 'genesis_do_new_header' );
 function genesis_do_new_header() {
      get_template_part( 'inc/header' );
 }
 
-//Edit the footer layout
+//* GENESIS -- Add 'Above Footer' file before footer output
+//add_action( 'genesis_before_footer', 'wd_top_footer' ) Uncomment to add section above footer;
+function wd_top_footer() {
+     get_template_part( 'inc/filename' );
+}
+
+//* GENESIS -- Remove default footer and replace with custom footer
 remove_action( 'genesis_footer', 'genesis_do_footer' );
 add_action( 'genesis_footer', 'genesis_do_new_footer' );
 function genesis_do_new_footer() {
      get_template_part( 'inc/footer' );
 }
 
-//* Remove comment form allowed tags
+//* GENESIS -- Remove comment form allowed tags
 add_filter( 'comment_form_defaults', 'bg_remove_comment_form_allowed_tags' );
 function bg_remove_comment_form_allowed_tags( $defaults ) {
 	$defaults['comment_notes_after'] = '';
 	return $defaults;
 }
-
-//* Remove site layouts
-genesis_unregister_layout( 'content-sidebar' );
-genesis_unregister_layout( 'sidebar-content' );
+//* GENESIS -- Remove unused layouts
 genesis_unregister_layout( 'content-sidebar-sidebar' );
 genesis_unregister_layout( 'sidebar-sidebar-content' );
 genesis_unregister_layout( 'sidebar-content-sidebar' );
+
+/* ====================
+
+ADVANCED CUSTOM FIELDS FUNCTIONS
+
+==================== */
+
+//* ACF -- Add options page
+//if( function_exists('acf_add_options_page') ) {
+//	acf_add_options_page(array(
+//		'page_title' 	=> 'Theme Settings',
+//		'menu_title'	=> 'Theme Settings',
+//		'menu_slug' 	=> 'theme-settings',
+//		'capability'	=> 'edit_posts',
+//		'position'     => '4.1',
+//		'icon_url'     => 'dashicons-list-view',
+//		'redirect'	=> false
+//	));
+//}
