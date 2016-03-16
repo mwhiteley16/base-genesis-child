@@ -74,12 +74,12 @@ GENESIS FUNCTIONS
 ==================== */
 
 //* GENESIS -- Removed unused page templates
+add_filter( 'theme_page_templates', 'wd_remove_genesis_page_templates' );
 function wd_remove_genesis_page_templates( $page_templates ) {
 	unset( $page_templates['page_archive.php'] );
 	unset( $page_templates['page_blog.php'] );
 	return $page_templates;
 }
-add_filter( 'theme_page_templates', 'wd_remove_genesis_page_templates' );
 
 //* GENESIS -- Remove unused sidebars
 remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
@@ -126,6 +126,7 @@ function bg_remove_comment_form_allowed_tags( $defaults ) {
 	$defaults['comment_notes_after'] = '';
 	return $defaults;
 }
+
 //* GENESIS -- Remove unused layouts
 genesis_unregister_layout( 'content-sidebar-sidebar' );
 genesis_unregister_layout( 'sidebar-sidebar-content' );
@@ -149,3 +150,6 @@ ADVANCED CUSTOM FIELDS FUNCTIONS
 //		'redirect'	=> false
 //	));
 //}
+
+//* ACF -- Hide ACF Menu from WordPress Dashboard (uncomment to use)
+//add_filter('acf/settings/show_admin', '__return_false');
