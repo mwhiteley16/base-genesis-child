@@ -145,6 +145,12 @@ textarea {
      -webkit-appearance: none;
      -webkit-border-radius: 0;
 }
+input[type=radio] {
+     -webkit-appearance: radio;
+}
+input[type=checkbox] {
+     -webkit-appearance: checkbox;
+}
 /* ---------- 1.3 Content Containers ---------- */
 .full-width,
 .five-sixths,
