@@ -395,6 +395,9 @@ a.comment-reply-link {
      background-color: #758188;
 }
 /* ---------- 1.5 Gravity Forms ---------- */
+.gform_wrapper ul {
+     padding-left: 0;
+}
 div.gform_wrapper input[type="email"],
 div.gform_wrapper input[type="text"],
 div.gform_wrapper input[type="tel"],
@@ -449,6 +452,9 @@ div.gform_wrapper li,
 div.gform_wrapper form li {
 	margin: 0 0 30px 0;
 	list-style: none;
+}
+div.gform_wrapper li.gform_hidden {
+	margin-bottom: 0;
 }
 div.gform_wrapper form li .validation_message {
 	display: none;
