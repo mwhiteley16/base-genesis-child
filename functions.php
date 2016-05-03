@@ -47,7 +47,7 @@ function wd_enqueue_lazyload() {
 add_action( 'wp_enqueue_scripts', 'wd_enqueue_fonts' );
 function wd_enqueue_fonts() {
      wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,700italic,700,500italic,400italic,500,300italic,300,100italic,100', array(), CHILD_THEME_VERSION );
-     wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION );
+     wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css', array(), CHILD_THEME_VERSION );
 }
 
 //* GENERIC -- Enqueue Admin Stylesheets (ACF)
