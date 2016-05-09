@@ -111,6 +111,7 @@ a:visited {
 a:hover {
 	text-decoration: underline;
 }
+
 /* ---------- 1.2 Misc ---------- */
 *,
 *:before, 
@@ -151,6 +152,11 @@ input[type=radio] {
 }
 input[type=checkbox] {
      -webkit-appearance: checkbox;
+}
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 40px 0 40px 0;
 }
 /* ---------- 1.3 Content Containers ---------- */
 .full-width,
@@ -445,7 +451,8 @@ div.gform_wrapper .gfield_required {
 	font-weight: 400;
 }
 div.gform_wrapper .gfield_error input,
-div.gform_wrapper .gfield_error .gfield_select {
+div.gform_wrapper .gfield_error .gfield_select,
+div.gform_wrapper .gfield_error textarea {
 	border: 2px solid #FF005E;
 }
 div.gform_wrapper li,
