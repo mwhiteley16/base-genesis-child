@@ -5,7 +5,7 @@
 	Author URI: http://whiteleydesigns.com
 	Version: 1.0.0
 	License: GPL-2.0+
-	
+
 	Template: genesis
 */
 
@@ -15,8 +15,8 @@
 1.0  Universal
      1.1 Typography
      1.2 Misc
-     1.3 Main Content Containers
-     1.4 Comments
+     1.3 Column Classes
+     1.4 Main Content Containers
      1.5 Gravity Forms
      1.6 Tables
 2.0  Header
@@ -37,6 +37,8 @@ body,
 html {
      height: 100%;
      min-height: 100%;
+     font-size: 14px;
+     margin: 0;
 }
 /* ---------- 1.1 Typography ---------- */
 body,
@@ -50,58 +52,58 @@ p,
 select,
 textarea,
 input {
-	color: #333;
-	font-family: 'Roboto', Arial, Helvetica, Tahoma, sans-serif;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 22px;
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
+     color: #333;
+     font-family: 'Roboto', Arial, Helvetica, Tahoma, sans-serif;
+     font-weight: 400;
+     line-height: 1.2em;
+     margin: 0;
+     padding: 0;
+     text-decoration: none;
 }
 h1,
 h2,
 h3,
 h4,
 h5 {
-	color: #202526;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
-	line-height: 1.2;
-	margin: 0;
-	margin-bottom: 16px;
-	padding: 0;
+     color: #333;
+     font-family: 'Roboto', sans-serif;
+     margin-bottom: 16px;
 }
 h1 {
-	font-size: 30px;
+     font-size: 1.8em;
 }
 h2 {
-	font-size: 24px;
+     font-size: 1.6em;
 }
 h3 {
-	font-size: 18px;
+     font-size: 1.4em;
 }
 h4 {
-	font-size: 16px;
+     font-size: 1.2em;
 }
 h5 {
-	font-size: 14px;
+     font-size: 0.8em;
+}
+p {
+     font-size: 1em;
+     margin-bottom: 20px;
 }
 li,
 ol,
 ul {
-	margin: 0;
-	padding: 0;
+     margin: 0;
+     padding: 0;
 }
 .site-inner ul,
 .site-inner ol {
-	margin-bottom: 15px;
-	padding-left: 40px;
+     margin-bottom: 15px;
+     padding-left: 40px;
 }
 a,
 a:visited {
-	color: #25a;
-	text-decoration: none;
+     color: #25a;
+     background-color: transparent;
+     text-decoration: none;
      -webkit-transition: all 0.2s ease-in-out;
      -moz-transition: all 0.2s ease-in-out;
      -ms-transition: all 0.2s ease-in-out;
@@ -109,38 +111,48 @@ a:visited {
      transition: all 0.2s ease-in-out;
 }
 a:hover {
-	text-decoration: underline;
+     text-decoration: underline;
 }
-
+a[href^="tel"],
+a[href^="tel"]:hover {
+     text-decoration: none;
+}
+b,
+strong {
+     font-weight: bold;
+}
+svg:not(:root) {
+	overflow: hidden;
+}
 /* ---------- 1.2 Misc ---------- */
 *,
-*:before, 
+*:before,
 *:after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box; 
-	box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
 }
 img.alignleft {
-	float: left;
-	padding: 0 15px 15px 0;
+     float: left;
+     padding: 0 15px 15px 0;
 }
 img.alignright {
-	float: right;
-	padding: 0 0 15px 15px;
+     float: right;
+     padding: 0 0 15px 15px;
 }
 img.aligncenter {
-	clear: both;
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
+     clear: both;
+     margin-left: auto;
+     margin-right: auto;
+     display: block;
 }
 img {
-	border: none;
-	max-width: 100%;
-	height: auto;
+     border: none;
+     max-width: 100%;
+     height: auto;
 }
 iframe {
-	max-width: 100%;
+     max-width: 100%;
 }
 input,
 textarea {
@@ -153,12 +165,22 @@ input[type=radio] {
 input[type=checkbox] {
      -webkit-appearance: checkbox;
 }
-hr {
-  border: none;
-  border-top: 1px solid #ccc;
-  margin: 40px 0 40px 0;
+input[type="search"] {
+     -webkit-appearance: textfield;
+     box-sizing: content-box;
 }
-/* ---------- 1.3 Content Containers ---------- */
+hr {
+     border: none;
+     border-top: 1px solid #ccc;
+     margin: 40px 0 40px 0;
+}
+.align-center {
+     text-align: center;
+}
+.align-right {
+     text-align: right;
+}
+/* ---------- 1.3 Column Classes ---------- */
 .full-width,
 .five-sixths,
 .four-sixths,
@@ -175,54 +197,54 @@ hr {
 .two-fifths,
 .two-sixths,
 .two-thirds {
-	float: left;
-	margin-left: 1.5%;
+     float: left;
+     margin-left: 1.5%;
 }
 .full-width {
-	width: 100%;
-	margin-left: 0;
+     width: 100%;
+     margin-left: 0;
 }
- .one-half,
+.one-half,
 .three-sixths,
 .two-fourths {
-	width: 49.25%;
+     width: 49.25%;
 }
  .one-third,
 .two-sixths {
-	width: 32.333333333333%;
+     width: 32.333333333333%;
 }
 .four-sixths,
 .two-thirds {
-	width: 66.166666666667%;
+     width: 66.166666666667%;
 }
 .one-fourth {
-	width: 23.875%;
+     width: 23.875%;
 }
 .three-fourths {
-	width: 74.625%;
+     width: 74.625%;
 }
 .one-fifth {
-	width: 18.8%;
+     width: 18.8%;
 }
 .two-fifths {
-	width: 39.1%;
+     width: 39.1%;
 }
 .three-fifths {
-	width: 59.4%;
+     width: 59.4%;
 }
 .four-fifths {
-	width: 79.7%;
+     width: 79.7%;
 }
 .one-sixth {
-	width: 15.416666666667%;
+     width: 15.416666666667%;
 }
 .five-sixths {
-	width: 83.083333333333%;
+     width: 83.083333333333%;
 }
 .first {
-	clear: both;
-	margin-left: 0;
-}
+     clear: both;
+     margin-left: 0;
+}/* ---------- 1.4 Content Containers ---------- */
 .wrap,
 .site-inner .page-interior {
      width: 100%;
@@ -245,160 +267,6 @@ body,
      position: relative;
      padding: 25px 0;
      background-color: #fff;
-}
-/* ---------- 1.4 Comments ---------- */
-.entry-comments {
-     float: left;
-     width: 100%;
-     border-top: 1px solid #ddd;
-     padding-top: 25px;
-}
-.entry-comments h3,
-#respond h3 {
-     float: left;
-     width: 100%;
-     margin: 15px 0;
-     font-family: 'Playfair Display';
-     color: #000;
-     font-size: 28px;
-     line-height: 28px;
-}
-.blog ol.comment-list {
-     float: left;
-     list-style-type: none;
-     width: 100%;
-     padding: 0;
-     margin: 15px 0;
-}
-.blog ol.comment-list li {
-     float: left;
-     width: 100%;
-}
-.page-interior .interior-wrap ol.comment-list li article {
-     padding: 0;
-     border-bottom: 1px solid #eee;
-     margin-bottom: 20px;
-}
-.blog ol.comment-list li header {
-     float: left;
-     width: 100%;
-     position: relative;
-     padding: 0 0 0 60px;
-     height: 48px;
-     margin-bottom: 15px;
-}
-.blog ol.comment-list li header img {
-     position: absolute;
-     top: 0;
-     left: 0;
-}
-.blog ol.comment-list li header p.comment-author {
-     float: left;
-     margin-right: 5px;
-     margin: 0 5px 0 0;
-     font-size: 18px;
-     line-height: 18px;
-}
-.blog ol.comment-list .comment-content,
-.blog ol.comment-list .comment-reply {
-     float: left;
-     width: 100%;
-}
-.blog ol.comment-list .comment-reply {
-     margin-bottom: 20px;
-}
-.blog ol.comment-list li ul.children {
-     list-style-type: none;
-     padding: 20px 0 20px 20px;
-     margin: 0;
-}
-a.comment-time-link {
-     clear: both;
-     float: left;
-     font-size: 16px;
-     color: #444;
-}
-a.comment-reply-link {
-     float: left;
-     background-color: #a8b6bf;
-     color: #fff;
-     padding: 3px 17px;
-}
-#respond {
-     padding: 0 0 25px;
-     border-top: 1px solid #ddd;
-}
-#respond,
-#respond form#commentform {
-     float: left;
-     width: 100%;
-}
-#respond p.logged-in-as,
-#respond p.comment-form-comment {
-     float: left;
-     width: 100%;
-     margin-bottom: 10px;
-}
-#respond p.comment-form-comment label {
-     float: left;
-     width: 100%;
-     font-size: 18px;
-}
-#respond p.comment-notes {
-     float: left;
-     width: 100%;
-     margin-bottom: 10px;
-}
-#respond p.comment-form-author,
-#respond p.comment-form-email,
-#respond p.comment-form-url,
-#respond p.comment-form-comment {
-     float: left;
-     width: 100%;
-     margin-bottom: 7px;
-}
-#respond p.comment-form-author label,
-#respond p.comment-form-email label,
-#respond p.comment-form-url label {
-     float: left;
-     width: 8%;
-     margin-right: 10px;
-}
-#respond p.comment-form-author input,
-#respond p.comment-form-email input,
-#respond p.comment-form-url input,
-#respond p.comment-form-comment textarea {
-     border: none;
-     height: auto;
-     padding: 5px;
-     width: 100%;
-     background-color: #fff;
-     border: 1px solid #ddd;
-     font-size: 20px;
-     padding: 15px;
-}
-#respond p.comment-form-author input:focus,
-#respond p.comment-form-email input:focus,
-#respond p.comment-form-url input:focus,
-#respond p.comment-form-comment textarea:focus {
-     border: 1px solid #a8b6bf;
-     outline: none;
-}
-#respond p.comment-form-comment textarea {
-     height: 150px;
-     padding: 15px;
-}
-#respond input.submit {
-     float: left;
-     padding: 10px 20px;
-     border: none;
-     background-color: #a8b6bf;
-     color: #fff;
-     text-transform: uppercase;
-}
-#respond input.submit:hover {
-     cursor: pointer;
-     background-color: #758188;
 }
 /* ---------- 1.5 Gravity Forms ---------- */
 .gform_wrapper ul {
@@ -425,74 +293,74 @@ div.gform_wrapper .validation_error,
      color: #ff005e;
      line-height: 30px;
 }
-div.gform_wrapper select {
-	height: 54px;
+div.gform_wrapper select {    
+     height: 54px;
 }
 div.gform_wrapper textarea.medium {
-	height: 200px;
+     height: 200px;
 }
 div.gform_wrapper label.gfield_label {
-	color: #3b4445;
-	font-size: 20px;
-	font-weight: 700;
-	float: left;
-	width: 100%;
-	margin-bottom: 5px;
+     color: #3b4445;
+     font-size: 20px;
+     font-weight: 700;
+     float: left;
+     width: 100%;
+     margin-bottom: 5px;
 }
 div.gform_wrapper .ginput_complex label {
-	color: #3b4445;
-	font-size: 18px;
-	padding: 0;
-	font-style: italic;
-	display: none;
+     color: #3b4445;
+     font-size: 18px;
+     padding: 0;
+     font-style: italic;
+     display: none;
 }
 div.gform_wrapper .gfield_required {
-	color: #660000;
-	font-weight: 400;
+     color: #660000;
+     font-weight: 400;
 }
 div.gform_wrapper .gfield_error input,
 div.gform_wrapper .gfield_error .gfield_select,
 div.gform_wrapper .gfield_error textarea {
-	border: 2px solid #FF005E;
+     border: 2px solid #FF005E;
 }
 div.gform_wrapper li,
 div.gform_wrapper form li {
-	margin: 0 0 30px 0;
-	list-style: none;
+     margin: 0 0 30px 0;
+     list-style: none;
 }
 div.gform_wrapper li.gform_hidden {
-	margin-bottom: 0;
+     margin-bottom: 0;
 }
 div.gform_wrapper form li .validation_message {
-	display: none;
+     display: none;
 }
 div.gform_wrapper .gf_clear {
-	clear: both;
+     clear: both;
 }
 div.gform_wrapper .ginput_left,
 div.gform_wrapper .left-side,
 div.gform_wrapper span.name_first {
-	float: left;
-	width: 48%;
-	clear: left !important;
+     float: left;
+     width: 48%;
+     clear: left !important;
 }
 div.gform_wrapper .ginput_right,
 div.gform_wrapper .right-side,
 div.gform_wrapper span.name_last {
-	float: right;
-	width: 48%;
-	clear: right !important;
+     float: right;
+     width: 48%;
+     clear: right !important;
 }
 .gform_wrapper ul li.gfield {
-	clear: both;
-	overflow: auto;
+     clear: both;
+     overflow: auto;
 }
 div.gform_wrapper .gform_validation_container,
 div.gform_wrapper .gfield.hide_field {
-	display: none;
+     display: none;
 }
 div.gform_wrapper .gform_footer {
-	text-align: center;
+     text-align: center;
 }
 div.gform_wrapper .gform_footer .gform_button {
      padding: 25px 80px;
@@ -506,41 +374,28 @@ div.gform_wrapper .gform_footer .gform_button:hover {
      cursor: pointer;
      background-color: #758188;
 }
-.thanks {
-	max-width: 750px;
-	margin: 0 auto;
-	font-size: 24px;
-	background: #fff;
-	padding: 30px;
-	border-bottom: 1px solid #ddd;
-	border-right: 1px solid #ddd;
-	box-shadow: 2px 2px 3px rgba(0,0,0,0.05);
-}
-.thanks p {
-	margin: 0 0 28px 0;
-}
 /* ---------- 1.6 Tables ---------- */
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    margin-bottom: 20px;
+     border-collapse: collapse;
+     border-spacing: 0;
+     margin-bottom: 20px;
 }
 table.striped tr:nth-of-type(odd) {
-    background: whitesmoke;
+     background: whitesmoke;
 }
 th {
-    border: 1px solid #ccc;
-    padding: 10px;
-    position: relative;
-    background-color: #ddd;
-    font-size: 16px;
-    text-align: left;
+     border: 1px solid #ccc;
+     padding: 10px;
+     position: relative;
+     background-color: #ddd;
+     font-size: 16px;
+     text-align: left;
 }
 td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    position: relative;
-    font-size: 16px;
+     border: 1px solid #ccc;
+     padding: 10px;
+     position: relative;
+     font-size: 16px;
 }
 /* ========== 2.0 HEADER ========== */
 .site-header {
@@ -555,7 +410,6 @@ i.fa.mobile-menu-toggle {
      display: none;
 }
 /* ========== 3.0 FOOTER ========== */
-/* ---------- 3.2 Copyright ---------- */
 .site-footer {
      float: left;
      width: 100%;
@@ -583,7 +437,7 @@ nav ul.menu {
      float: left;
      width: 100%;
      text-align: center;
-} 
+}
 nav ul.menu li {
      float: none;
      display: inline-block;
