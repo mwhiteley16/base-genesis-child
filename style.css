@@ -181,6 +181,7 @@ hr {
      text-align: right;
 }
 /* ---------- 1.3 Column Classes ---------- */
+/* http://www.billerickson.net/column-class-generator/ */
 .full-width,
 .five-sixths,
 .four-sixths,
@@ -199,10 +200,6 @@ hr {
 .two-thirds {
      float: left;
      margin-left: 1.5%;
-}
-.full-width {
-     width: 100%;
-     margin-left: 0;
 }
 .one-half,
 .three-sixths,
@@ -244,7 +241,12 @@ hr {
 .first {
      clear: both;
      margin-left: 0;
-}/* ---------- 1.4 Content Containers ---------- */
+}
+.full-width {
+     width: 100%;
+     margin-left: 0;
+}
+/* ---------- 1.4 Content Containers ---------- */
 .wrap,
 .site-inner .page-interior {
      width: 100%;
