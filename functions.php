@@ -132,25 +132,3 @@ function bg_remove_comment_form_allowed_tags( $defaults ) {
 genesis_unregister_layout( 'content-sidebar-sidebar' );
 genesis_unregister_layout( 'sidebar-sidebar-content' );
 genesis_unregister_layout( 'sidebar-content-sidebar' );
-
-/* ====================
-
-ADVANCED CUSTOM FIELDS FUNCTIONS
-
-==================== */
-
-//* ACF -- Add options page
-//if( function_exists('acf_add_options_page') ) {
-//	acf_add_options_page(array(
-//		'page_title' 	=> 'Theme Settings',
-//		'menu_title'	=> 'Theme Settings',
-//		'menu_slug' 	=> 'theme-settings',
-//		'capability'	=> 'edit_posts',
-//		'position'     => '4.1',
-//		'icon_url'     => 'dashicons-list-view',
-//		'redirect'	=> false
-//	));
-//}
-
-//* ACF -- Hide ACF Menu from WordPress Dashboard (uncomment to use)
-//add_filter('acf/settings/show_admin', '__return_false');
