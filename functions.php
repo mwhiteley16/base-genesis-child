@@ -51,13 +51,6 @@ function wd_enqueue_fonts() {
      wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,700italic,700,500italic,400italic,500,300italic,300,100italic,100', array(), CHILD_THEME_VERSION );
 }
 
-//* GENERIC -- Enqueue Admin Stylesheets (ACF)
-//add_action( 'admin_enqueue_scripts', 'wd_enqueue_admin_style' ) // Uncomment to enqueue stylesheet for admin pages;
-function wd_enqueue_admin_style() {
-        wp_register_style( 'handle', get_stylesheet_directory_uri() . '/handle.css', false );
-        wp_enqueue_style( 'handle' );
-}
-
 //* GENERIC -- Register Custom Menu Locations
 //add_action( 'init', 'wd_register_menus' ) // Uncomment to register menu section(s);
 function wd_register_menus() {
