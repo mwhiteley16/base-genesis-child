@@ -261,7 +261,7 @@ body,
      overflow-x: hidden;
 }
 .site-inner,
-.site-inner .page-interor .interior-wrap {
+.site-inner .page-interior .interior-wrap {
      float: left;
      width: 100%;
 }
