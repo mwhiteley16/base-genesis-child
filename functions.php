@@ -37,28 +37,26 @@ function wd_load_scripts() {
 }
 
 //* GENERIC -- Register & Enqueue Additional Scripts
-//add_action( 'wp_enqueue_scripts', 'wd_enqueue_lazyload' ) // Uncomment to enable lazyload;
+//* Used to enqueue a variety of scripts.  Common ones are listed below, simply uncomment the action and the needed scripts to use
+//* Add additional scripts as needed
+//add_action( 'wp_enqueue_scripts', 'wd_enqueue_lazyload' );
 function wd_enqueue_lazyload() {
-     wp_register_script( 'jquery-lazyload', get_stylesheet_directory_uri() . '/js/jquery.lazyload.js', array('jquery'), '1.9.3', true );
-     wp_register_script( 'font-awesome-cdn', 'https://use.fontawesome.com/c312c6a5ae.js' );
-     wp_enqueue_script( 'jquery-lazyload' );
-     wp_enqueue_script( 'font-awesome-cdn' );
+     //wp_register_script( 'jquery-lazyload', get_stylesheet_directory_uri() . '/js/jquery.lazyload.js', array('jquery'), '1.9.3', true ); // lazyload
+	//wp_enqueue_script( 'jquery-lazyload' );
+     //wp_register_script( 'font-awesome-cdn', 'https://use.fontawesome.com/c312c6a5ae.js' ); // font awesome (CDN)
+	//wp_enqueue_script( 'font-awesome-cdn' );
+     //wp_register_script( 'flickity', get_stylesheet_directory_uri() . '/js/flickity.pkgd.min.js', array('jquery'), '1.9.3', true ); // flickity
+	//wp_enqueue_script( 'flickity' );
+	//wp_register_script('wd-slideshow', get_stylesheet_directory_uri() . '/js/wd-slideshow.js' ); // WD Slideshow
+     //wp_enqueue_script( 'wd-slideshow' );
 }
 
-//* GENERIC -- Enqueue Custom Styles (google fonts, font-awesome, etc...)
-add_action( 'wp_enqueue_scripts', 'wd_enqueue_fonts' );
-function wd_enqueue_fonts() {
-     wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,700italic,700,500italic,400italic,500,300italic,300,100italic,100', array(), CHILD_THEME_VERSION );
-}
-
-//* GENERIC -- Register Custom Menu Locations
-//add_action( 'init', 'wd_register_menus' ) // Uncomment to register menu section(s);
-function wd_register_menus() {
-  register_nav_menus(
-    array(
-      'footer-menu' => __( 'Footer Menu' )
-    )
-  );
+//* GENERIC -- Enqueue Google Fonts
+//* Enqueue any Google Fonts you need here.  By Default I have Roboto, Lato & Source Sans Pro
+//* Be sure to removed un-used fonts to save load time
+add_action( 'wp_enqueue_scripts', 'wd_enqueue_google_fonts' );
+function wd_enqueue_google_fonts() {
+     wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,700italic,700,500italic,400italic,500,300italic,300,100italic,100|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i', array(), CHILD_THEME_VERSION );
 }
 
 /* ====================
