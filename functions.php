@@ -59,6 +59,19 @@ function wd_enqueue_google_fonts() {
      wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,700italic,700,500italic,400italic,500,300italic,300,100italic,100|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i', array(), CHILD_THEME_VERSION );
 }
 
+//* GENERIC -- allow SVG uploads and fix back end media styling for SVGs
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+//add_filter('upload_mimes', 'cc_mime_types'); // Uncomment to use
+function custom_admin_head() {
+  $css = '';
+  $css = 'td.media-icon img[src$=".svg"] { width: 100% !important; height: auto !important; }';
+  echo '<style type="text/css">'.$css.'</style>';
+}
+//add_action('admin_head', 'custom_admin_head'); // Uncomment to use
+
 /* ====================
 
 GENESIS FUNCTIONS
@@ -96,20 +109,14 @@ unregister_sidebar( 'footer-3' );
 remove_action( 'genesis_header', 'genesis_do_header' );
 add_action( 'genesis_header', 'genesis_do_new_header' );
 function genesis_do_new_header() {
-     get_template_part( 'inc/header' );
-}
-
-//* GENESIS -- Add 'Above Footer' file before footer output
-//add_action( 'genesis_before_footer', 'wd_top_footer' ) Uncomment to add section above footer;
-function wd_top_footer() {
-     get_template_part( 'inc/filename' );
+     get_template_part( 'sections/header' );
 }
 
 //* GENESIS -- Remove default footer and replace with custom footer
 remove_action( 'genesis_footer', 'genesis_do_footer' );
 add_action( 'genesis_footer', 'genesis_do_new_footer' );
 function genesis_do_new_footer() {
-     get_template_part( 'inc/footer' );
+     get_template_part( 'sections/footer' );
 }
 
 //* GENESIS -- Remove comment form allowed tags
