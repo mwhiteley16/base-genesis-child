@@ -31,6 +31,9 @@
 7.0  Home Page
 8.0  Interior Pages
      8.1 Sidebars
+9.0  Blog
+     9.1 Archive
+     9.2 Single
 
 20.0 Responsive
      1200px
@@ -160,7 +163,7 @@ h4,
 h5,
 h6 {
      color: #333;
-     font-family: 'Roboto', sans-serif;
+     font-family: 'Lato', sans-serif;
      margin: 0 0 15px 0;
      line-height: 1.2em;
      font-weight: 500;
@@ -186,19 +189,25 @@ h6 {
      font-size: 14px;
 }
 /* ---------- 1.4 Common Classes ---------- */
-img.alignleft {
+img.alignleft,
+.wp-caption.alignleft {
      float: left;
      padding: 0 15px 15px 0;
 }
-img.alignright {
+img.alignright,
+.wp-caption.alignright {
      float: right;
      padding: 0 0 15px 15px;
 }
-img.aligncenter {
+img.aligncenter,
+.wp-caption.aligncenter {
      clear: both;
      margin-left: auto;
      margin-right: auto;
      display: block;
+}
+.wp-caption.alignnone {
+     max-width: 100%;
 }
 .align-center {
      text-align: center;
@@ -319,6 +328,207 @@ td {
      margin-left: 0;
 }
 /* ========== 3.0 MODULES ========== */
+/* ---------- 3.1 Gravity Forms ---------- */
+.gform_wrapper,
+.gform_wrapper form,
+.gform_body,
+.gsection_description,
+.ginput_full {
+     float: left;
+     width: 100%;
+}
+.gform_heading {
+     float: left;
+     width: 100%;
+     margin-bottom: 25px;
+}
+h3.gform_title {
+     float: left;
+     width: 100%;
+     border-bottom: 1px solid #ccc;
+     padding-bottom: 10px;
+     margin-top: 15px;
+}
+.gform_heading .gform_description {
+     float: left;
+     width: 100%;
+     font-weight: 600;
+     color: #555;
+}
+.gform_wrapper ul {
+     padding-left: 0;
+}
+div.gform_wrapper li,
+div.gform_wrapper form li {
+     margin: 0 0 20px 0;
+     list-style: none;
+}
+h2.gsection_title {
+     font-size: 24px;
+     margin-bottom: 3px;
+}
+.gform_wrapper ul li.gfield {
+     float: left;
+     width: 100%;
+     clear: both;
+     overflow: auto;
+}
+.gform_wrapper ul li.gfield.gsection {
+     border-bottom: 1px solid #ccc;
+     padding-bottom: 15px;
+     margin-top: 15px;
+}
+div.gform_wrapper label.gfield_label {
+     color: #3b4445;
+     font-size: 18px;
+     font-weight: 600;
+     float: left;
+     width: 100%;
+     margin-bottom: 5px;
+}
+div.gform_wrapper input[type="email"],
+div.gform_wrapper input[type="text"],
+div.gform_wrapper input[type="tel"],
+div.gform_wrapper input[type="url"],
+div.gform_wrapper textarea,
+div.gform_wrapper select,
+div.gform_wrapper .ginput_complex label {
+     font-size: 16px;
+     padding: 10px 15px;
+     width: 100%;
+     border: 1px solid #ddd;
+}
+.gfield_description {
+     float: left;
+     width: 100%;
+     margin-top: 3px;
+}
+div.gform_wrapper .ginput_complex label {
+     float: left;
+     width: 100%;
+     padding: 0;
+     border: none;
+     font-style: italic;
+}
+div.gform_wrapper .address_line_2,
+div.gform_wrapper .address_city,
+div.gform_wrapper .address_state,
+div.gform_wrapper .address_zip,
+div.gform_wrapper .address_country {
+     margin-top: 15px;
+}
+div.gform_wrapper li ul.gfield_radio,
+div.gform_wrapper li ul.gfield_checkbox {
+     float: left;
+     width: 100%;
+     margin-top: 15px;
+}
+div.gform_wrapper li ul.gfield_radio li,
+div.gform_wrapper li ul.gfield_checkbox li {
+     float: left;
+     width: 100%;
+     margin-bottom: 3px;
+}
+div.gform_wrapper li.gf_list_2col ul.gfield_radio li,
+div.gform_wrapper li.gf_list_2col ul.gfield_checkbox li {
+     float: left;
+     width: 50%;
+     margin-bottom: 3px;
+}
+div.gform_wrapper li.gf_list_3col ul.gfield_radio li,
+div.gform_wrapper li.gf_list_3col ul.gfield_checkbox li {
+     float: left;
+     width: 33.33333%;
+     margin-bottom: 3px;
+}
+div.gform_wrapper li ul.gfield_radio li label,
+div.gform_wrapper li ul.gfield_checkbox li label {
+     margin-left: 7px;
+}
+.gform_wrapper ul.gfield_checkbox li input[type=checkbox]:checked+label,
+.gform_wrapper ul.gfield_radio li input[type=radio]:checked+label {
+     font-weight: 600;
+}
+div.gform_wrapper .gfield_required {
+     color: #660000;
+     font-weight: 400;
+}
+div.gform_wrapper .validation_error,
+.gform_confirmation_message {
+     float: left;
+     width: 100%;
+     text-align: center;
+     border: 2px solid #ff005e;
+     padding: 10px;
+     color: #ff005e;
+     background-color: #fafafa;
+}
+div.gform_wrapper .gfield_error input,
+div.gform_wrapper .gfield_error .gfield_select,
+div.gform_wrapper .gfield_error textarea {
+     border: 2px solid #FF005E;
+}
+div.gform_wrapper .gform_validation_container,
+div.gform_wrapper .gfield.hide_field {
+     display: none;
+}
+div.gform_wrapper .gform_footer {
+     float: left;
+     width: 100%;
+}
+div.gform_wrapper .gform_footer .gform_button,
+div.gform_wrapper .gform_page_footer .button {
+     padding: 10px 15px;
+     background-color: #333;
+     color: #fff;
+     border: none;
+     font-size: 16px;
+}
+div.gform_wrapper .gform_footer .gform_button:hover,
+div.gform_wrapper .gform_page_footer .button:hover {
+     cursor: pointer;
+     background-color: #666;
+}
+div.gform_wrapper .gform_page_footer .gform_next_button.button {
+     float: right;
+}
+div.gform_wrapper li.gform_hidden {
+     margin-bottom: 0;
+}
+div.gform_wrapper .gf_clear {
+     clear: both;
+}
+div.gform_wrapper .ginput_left,
+div.gform_wrapper ul li.gfield.left-side,
+div.gform_wrapper span.name_first {
+     float: left;
+     width: 48%;
+     clear: left !important;
+}
+div.gform_wrapper .ginput_right,
+div.gform_wrapper ul li.gfield.right-side,
+div.gform_wrapper span.name_last {
+     float: right;
+     width: 48%;
+     clear: right !important;
+}
+.gf_progressbar_wrapper,
+h3.gf_progressbar_title,
+.gf_progressbar {
+     float: left;
+     width: 100%;
+}
+.gf_progressbar {
+     border-radius: 100px;
+     overflow: hidden;
+     border: 10px solid rgba(0,0,0,0.05);
+}
+.gf_progressbar_percentage {
+     padding: 6px 10px;
+     background: repeating-linear-gradient(-45deg,rgba(0,0,0,0),rgba(0,0,0,0) 10px,rgba(0,0,0,.1) 10px,rgba(0,0,0,.1) 20px),linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.3));
+     background-color: #879FA6;
+     text-align: right;
+}
 /* ========== 4.0 HEADER ========== */
 
 /* ========== 5.0 NAVIGATION ========== */
@@ -387,6 +597,38 @@ td {
 .interior-sidebar .widget {
      margin-bottom: 40px;
 }
+
+/* ========== 9.0 BLOG ========== */
+/* ---------- 9.1 Archive ---------- */
+.blog article,
+.archive-pagination {
+     float: left;
+     width: 100%;
+     margin-top: 20px;
+     padding-top: 20px;
+     border-top: 1px solid #ccc;
+}
+.blog article.sticky {
+     border: 7px solid #bb3c3c;
+     padding: 25px 25px 10px;
+     background-color: #fafafa;     
+}
+.archive-pagination ul {
+     float: left;
+     width: 100%;
+     margin: 0;
+     text-align: center;
+     list-style-type: none;
+}
+.archive-pagination ul li {
+     float: none;
+     display: inline-block;
+     margin: 0 10px;
+}
+.archive-pagination ul li.active a {
+     font-weight: 600;
+}
+/* ---------- 9.2 Single ---------- */
 
 /* ========== 20.0 RESPONSIVE ========== */
 @media(max-width:1200px) {
