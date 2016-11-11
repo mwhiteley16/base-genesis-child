@@ -39,8 +39,8 @@ function wd_load_scripts() {
 //* GENERIC -- Register & Enqueue Additional Scripts
 //* Used to enqueue a variety of scripts.  Common ones are listed below, simply uncomment the action and the needed scripts to use
 //* Add additional scripts as needed
-//add_action( 'wp_enqueue_scripts', 'wd_enqueue_lazyload' );
-function wd_enqueue_lazyload() {
+//add_action( 'wp_enqueue_scripts', 'wd_enqueue_scripts' );
+function wd_enqueue_scripts() {
      //wp_register_script( 'jquery-lazyload', get_stylesheet_directory_uri() . '/js/jquery.lazyload.js', array('jquery'), '1.9.3', true ); // lazyload
 	//wp_enqueue_script( 'jquery-lazyload' );
      //wp_register_script( 'font-awesome-cdn', 'https://use.fontawesome.com/c312c6a5ae.js' ); // font awesome (CDN)
