@@ -1,0 +1,86 @@
+[
+    {
+        "key": "group_5824d8d5e5ef2",
+        "title": "Slideshow Field Group",
+        "fields": [
+            {
+                "key": "field_5824d8de571f4",
+                "label": "Slideshow",
+                "name": "slideshow",
+                "type": "repeater",
+                "instructions": "Use this repeater to create slides for a slideshow.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": "",
+                "max": "",
+                "layout": "table",
+                "button_label": "Add Slide",
+                "sub_fields": [
+                    {
+                        "key": "field_5824d909571f5",
+                        "label": "Slideshow Image",
+                        "name": "slideshow_image",
+                        "type": "image",
+                        "instructions": "Choose image for this slide.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "preview_size": "full",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_5824df5e571f6",
+                        "label": "Slideshow Link (optional)",
+                        "name": "slideshow_link",
+                        "type": "url",
+                        "instructions": "Where does this slide link (optional)?",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page_home.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }
+]
