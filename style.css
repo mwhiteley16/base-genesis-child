@@ -43,6 +43,10 @@
 List universal Z-INDEX items here
 to keep them in order and readily accessible
 
+Slideshow Container      1 // Used only with base slideshow
+Active Slide             2 // Used only with base slideshow
+Sub Menu                 10 // Only if there is multi-level menus
+
 ===== / Z-INDEX STACK =====
 
 ********************/
@@ -214,6 +218,45 @@ img.aligncenter,
 }
 .align-right {
      text-align: right;
+}
+button,
+.button,
+a.button,
+a.button:visited {
+     background-color: #3ab1ac;
+     border: 1px solid #3ab1ac;
+     color: #fff;
+     display: inline-block;
+     padding: 10px 30px;
+     text-decoration: none;
+     font-weight: 400;
+     text-transform: uppercase;
+     font-size: 20px;
+     margin-top: 10px;
+}
+button:hover,
+.button:hover,
+a.button:hover,
+a.button:visited:hover {
+     background-color: #fff;
+     color: #3ab1ac;
+     text-decoration: none;
+}
+button.inverse,
+.button.inverse,
+a.button.inverse,
+a.button:visited.inverse {
+     background-color: transparent;
+     border: 1px solid #3ab1ac;
+     color: #3ab1ac;
+}
+button.inverse:hover,
+.button.inverse:hover,
+a.button.inverse:hover,
+a.button:visited.inverse:hover {
+     background-color: #3ab1ac;
+     border: 1px solid #3ab1ac;
+     color: #fff;
 }
 /* ---------- 1.5 Tables ---------- */
 table {
@@ -799,6 +842,7 @@ i.fa.mobile-menu-toggle {
      padding: 15px;
      background-color: #fff;
      border: 1px solid #eee;
+     z-index: 10;
 }
 .nav-primary ul.menu li ul.sub-menu li {
      float: left;
