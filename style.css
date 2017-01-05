@@ -809,6 +809,9 @@ button.flickity-prev-next-button {
 i.fa.mobile-menu-toggle {
      display: none;
 }
+.nav-primary {
+     background-color: #fafafa;
+}
 .nav-primary ul.menu {
      float: left;
      width: 100%;
@@ -831,9 +834,6 @@ i.fa.mobile-menu-toggle {
      display: block;
 }
 /* ---------- 5.1 Second Level ---------- */
-.nav-primary {
-     background-color: #fafafa;
-}
 .nav-primary ul.menu li ul.sub-menu {
      display: none;
      position: absolute;
