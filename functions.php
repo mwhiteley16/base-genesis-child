@@ -72,6 +72,15 @@ function custom_admin_head() {
 }
 //add_action('admin_head', 'custom_admin_head'); // Uncomment to use
 
+// Add custom logo to login screen
+// Uncomment action and update URL to image to use - may need to alter other CSS based on logo orientation
+function wd_login_logo() {
+echo '<style type="text/css">
+h1 a {background-image: url('.get_stylesheet_directory_uri().'/images/logo-name-here.png) !important; }
+</style>';
+}
+//add_action('login_head', 'wd_login_logo');
+
 /* ====================
 
 GENESIS FUNCTIONS
