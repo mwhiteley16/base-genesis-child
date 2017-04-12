@@ -430,6 +430,9 @@ div.gform_wrapper label.gfield_label {
      width: 100%;
      margin-bottom: 5px;
 }
+div.gform_wrapper .no-label label {
+     display: none;
+}
 div.gform_wrapper input[type="email"],
 div.gform_wrapper input[type="text"],
 div.gform_wrapper input[type="tel"],
