@@ -81,6 +81,19 @@ h1 a {background-image: url('.get_stylesheet_directory_uri().'/images/logo-name-
 }
 //add_action('login_head', 'wd_login_logo');
 
+// Remove default Genesis Child Theme Stylesheet
+remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
+// Create function to append last modified file to stylesheet URL
+add_action( 'wp_enqueue_scripts', 'wd_genesis_child_stylesheet' );
+function wd_genesis_child_stylesheet() {
+	$theme_name = defined('CHILD_THEME_NAME') && CHILD_THEME_NAME ? sanitize_title_with_dashes(CHILD_THEME_NAME) : 'child-theme'; // theme name for handle
+	$stylesheet_uri = get_stylesheet_directory_uri() . '/style.css'; // stylesheet directory uri
+	$stylesheet_dir = get_stylesheet_directory() . '/style.css'; // stylesheet directory
+	$last_modified = date ( "njYHi", filemtime( $stylesheet_dir ) ); // last modification date for stylesheet
+	// Enqueue the modified stylesheet with datestamp
+	wp_enqueue_style( $theme_name, $stylesheet_uri, array(), $last_modified );
+}
+
 /* ====================
 
 GENESIS FUNCTIONS
