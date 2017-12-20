@@ -2,7 +2,7 @@
 /**
  * Functions
  *
- * @package      shred-right-now
+ * @package      base-genesis
  * @since        1.0.0
  * @author       Matt Whiteley <matt@whiteleydesigns.com>
  * @copyright    Copyright (c) 2016, Matt Whiteley
@@ -14,7 +14,7 @@
 include_once( get_template_directory() . '/lib/init.php' );
 
 //* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'Shred Right Now' );
+define( 'CHILD_THEME_NAME', 'Base Genesis Theme' );
 define( 'CHILD_THEME_URL', 'http://whiteleydesigns.com/' );
 define( 'CHILD_THEME_VERSION', '1.0.0' );
 
