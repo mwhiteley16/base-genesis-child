@@ -1,9 +1,18 @@
-<div class="header-logo-wrap full-width align-center">
+<div class="header-logo-wrap">
      <a href="<?php echo get_home_url(); ?>"><img class="header-logo" src="http://basegenesis.whiteleydesigns.com/wp-content/uploads/2016/11/wd-basegenesis-logo.png" alt="Genesis Child Theme Logo"></a>
 </div>
 
-<?php // wp_nav_menu( array('menu' => 'Main Menu', 'container_class' => 'nav-primary' )); // Use this to pull in the main menu if you don't want to use the default 'Primary Navigation' setting ?>
+<button class="mobile-menu-toggle">
+     <div></div>
+     <div></div>
+     <div></div>
+</button>
 
-<p class="align-center full-width">Edit the header area using the /sections/header.php file in the base child theme.</p>
-
-<i class="fa fa-bars mobile-menu-toggle"></i>
+<script>
+jQuery(document).ready(function() {
+     jQuery('button.mobile-menu-toggle').click(function() {
+         jQuery(this).toggleClass('active');
+         jQuery('.nav-primary').slideToggle();
+     });
+});
+</script>
