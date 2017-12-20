@@ -2,7 +2,7 @@
 /**
  * Functions
  *
- * @package      base-genesis-child
+ * @package      shred-right-now
  * @since        1.0.0
  * @author       Matt Whiteley <matt@whiteleydesigns.com>
  * @copyright    Copyright (c) 2016, Matt Whiteley
@@ -14,15 +14,14 @@
 include_once( get_template_directory() . '/lib/init.php' );
 
 //* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'Child Theme Name' );
+define( 'CHILD_THEME_NAME', 'Shred Right Now' );
 define( 'CHILD_THEME_URL', 'http://whiteleydesigns.com/' );
 define( 'CHILD_THEME_VERSION', '1.0.0' );
 
-//* Add HTML5 markup structure
+//* Add Proper Theme Support Options
 add_theme_support( 'html5' );
-
-//* Add viewport meta tag for mobile browsers
 add_theme_support( 'genesis-responsive-viewport' );
+add_theme_support( 'genesis-accessibility', array( '404-page', 'drop-down-menu', 'headings', 'rems', 'search-form', 'skip-links' ) );
 
 /* ====================
 
@@ -37,8 +36,6 @@ function wd_load_scripts() {
 }
 
 //* GENERIC -- Register & Enqueue Additional Scripts
-//* Used to enqueue a variety of scripts.  Common ones are listed below, simply uncomment the action and the needed scripts to use
-//* Add additional scripts as needed
 add_action( 'wp_enqueue_scripts', 'wd_enqueue_scripts' );
 function wd_enqueue_scripts() {
      //wp_register_script( 'jquery-lazyload', get_stylesheet_directory_uri() . '/js/jquery.lazyload.js', array('jquery'), '1.9.3', true ); // lazyload
@@ -52,8 +49,6 @@ function wd_enqueue_scripts() {
 }
 
 //* GENERIC -- Enqueue Google Fonts
-//* Enqueue any Google Fonts you need here.  By Default I have Roboto, Lato & Source Sans Pro
-//* Be sure to removed un-used fonts to save load time
 add_action( 'wp_enqueue_scripts', 'wd_enqueue_google_fonts' );
 function wd_enqueue_google_fonts() {
      wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:400,700italic,700,500italic,400italic,500,300italic,300,100italic,100|Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i', array(), CHILD_THEME_VERSION );
@@ -83,14 +78,12 @@ h1 a {background-image: url('.get_stylesheet_directory_uri().'/images/logo-name-
 
 // Remove default Genesis Child Theme Stylesheet
 remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
-// Create function to append last modified file to stylesheet URL
 add_action( 'wp_enqueue_scripts', 'wd_genesis_child_stylesheet' );
 function wd_genesis_child_stylesheet() {
-	$theme_name = defined('CHILD_THEME_NAME') && CHILD_THEME_NAME ? sanitize_title_with_dashes(CHILD_THEME_NAME) : 'child-theme'; // theme name for handle
-	$stylesheet_uri = get_stylesheet_directory_uri() . '/style.css'; // stylesheet directory uri
-	$stylesheet_dir = get_stylesheet_directory() . '/style.css'; // stylesheet directory
-	$last_modified = date ( "njYHi", filemtime( $stylesheet_dir ) ); // last modification date for stylesheet
-	// Enqueue the modified stylesheet with datestamp
+	$theme_name = defined('CHILD_THEME_NAME') && CHILD_THEME_NAME ? sanitize_title_with_dashes(CHILD_THEME_NAME) : 'child-theme';
+	$stylesheet_uri = get_stylesheet_directory_uri() . '/style.css';
+	$stylesheet_dir = get_stylesheet_directory() . '/style.css';
+	$last_modified = date ( "njYHi", filemtime( $stylesheet_dir ) );
 	wp_enqueue_style( $theme_name, $stylesheet_uri, array(), $last_modified );
 }
 
