@@ -1,5 +1,5 @@
 /*
-	Theme Name: WD Base Child Theme
+	Theme Name: Base Genesis Theme
 	Description: Child Theme built with Genesis Framework by Whiteley Designs.
 	Author: Matt Whiteley
 	Author URI: http://whiteleydesigns.com
@@ -12,6 +12,10 @@
 /*********************
 [ TABLE OF CONTENTS ]
 
+0.0  Accessibility
+     0.1 Menus
+     0.2 Screen Reader Text
+     0.3 Skip Links
 1.0  Universal
      1.1 Document Setup (Reset)
      1.2 Typogrpahy
@@ -27,6 +31,7 @@
      3.3 Flickity
 4.0  Header
 5.0  Navigation
+     5.1 Mobile Navigation
 6.0  Footer
 7.0  Home Page
 8.0  Interior Pages
@@ -51,6 +56,60 @@ Sub Menu                 10 // Only if there is multi-level menus
 
 ********************/
 
+/* ========== 0.0 ACCESSIBILITY ========== */
+/* ---------- 0.1 Menus ---------- */
+.menu .menu-item:focus {
+	position: static;
+}
+.menu .menu-item > a:focus + ul.sub-menu,
+.menu .menu-item.sf-hover > ul.sub-menu {
+	left: auto;
+	opacity: 1;
+}
+/* ---------- 0.2 Screen Reader Text ---------- */
+.screen-reader-text,
+.screen-reader-text span,
+.screen-reader-shortcut {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+.screen-reader-text:focus,
+.screen-reader-shortcut:focus,
+.genesis-nav-menu .search input[type="submit"]:focus,
+.widget_search input[type="submit"]:focus  {
+	clip: auto !important;
+	height: auto;
+	width: auto;
+	display: block;
+	font-size: 1em;
+	font-weight: bold;
+	padding: 15px 23px 14px;
+	color: #333;
+	background: #fff;
+	z-index: 100000; /* Above WP toolbar. */
+	text-decoration: none;
+	box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+}
+.more-link {
+    position: relative;
+}
+/* ---------- 0.3 Skip Links ---------- */
+.genesis-skip-link {
+	margin: 0;
+}
+.genesis-skip-link li {
+	height: 0;
+	width: 0;
+	list-style: none;
+}
+:focus {
+	color: #333;
+	outline: #ccc solid 1px;
+}
 /* ========== 1.0 UNIVERSAL ========== */
 /* ---------- 1.1 Document Setup ---------- */
 body,
@@ -809,9 +868,6 @@ button.flickity-prev-next-button {
 /* ========== 4.0 HEADER ========== */
 
 /* ========== 5.0 NAVIGATION ========== */
-i.fa.mobile-menu-toggle {
-     display: none;
-}
 .nav-primary {
      background-color: #fafafa;
 }
@@ -836,7 +892,6 @@ i.fa.mobile-menu-toggle {
 .nav-primary ul.menu li.menu-item-has-children:hover > ul.sub-menu {
      display: block;
 }
-/* ---------- 5.1 Second Level ---------- */
 .nav-primary ul.menu li ul.sub-menu {
      display: none;
      position: absolute;
@@ -862,6 +917,73 @@ i.fa.mobile-menu-toggle {
 }
 .nav-primary ul.menu li ul.sub-menu li a:hover {
      color: #000;
+}
+/* ---------- 5.1 Mobile Navigation ---------- */
+button.mobile-menu-toggle {
+     display: none;
+     position: absolute;
+     top: 45px;
+     right: 25px;
+     width: 30px;
+     height: 30px;
+     transition: all 300ms cubic-bezier(.61, .01, .42, 1);
+     cursor: pointer;
+     background: transparent;
+     border: 0px;
+}
+button.mobile-menu-toggle div {
+     height: 0px;
+     border: 1.5px solid #fbd713;
+     width: 22px;
+     display: block;
+     position: absolute;
+     transition: all 300ms cubic-bezier(.61, .01, .42, 1);
+     background:#fff;
+}
+button.mobile-menu-toggle:focus {
+     outline: 0px;
+}
+button.mobile-menu-toggle div:nth-child(1) {
+     top: 0px;
+}
+button.mobile-menu-toggle div:nth-child(2) {
+     top: 8px;
+}
+button.mobile-menu-toggle div:nth-child(3) {
+     top: 16px;
+}
+button.mobile-menu-toggle.active div:nth-child(3):before,
+button.mobile-menu-toggle.active div:nth-child(2) {
+     opacity: 0;
+     transition: all 200ms;
+}
+button.mobile-menu-toggle.active div {
+     height: 0px;
+     border-radius: 0%;
+     margin-left: -1px;
+     margin-top: 6px;
+     animation: division 300ms linear 1;
+     width: 25px;
+     top: 0px;
+}
+button.mobile-menu-toggle.active div:nth-child(2) {
+     width: 0px;
+}
+button.mobile-menu-toggle.active div:nth-child(3) {
+     transform: rotate(45deg);
+}
+button.mobile-menu-toggle.active div:nth-child(1) {
+     transform: rotate(-45deg);
+}
+@keyframes atom {
+  0% {
+      transform: rotate(180deg);
+  }
+}
+@keyframes division {
+  0% {
+      transform: rotate(180deg);
+  }
 }
 /* ========== 6.0 FOOTER ========== */
 .site-footer {
