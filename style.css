@@ -117,7 +117,7 @@ html {
      height: 100%;
      min-height: 100%;
      margin: 0;
-     font-size: 18px;
+     font-size: 10px;
 }
 svg:not(:root) {
 	overflow: hidden;
@@ -178,7 +178,6 @@ ul {
 a,
 a:visited {
      color: #3ab1ac;
-     font-weight: 600;
      background-color: transparent;
      text-decoration: none;
      -webkit-transition: all 0.2s ease-in-out;
@@ -233,23 +232,29 @@ h6 {
 }
 h1 {
      font-size: 32px;
+	font-size: 3.2rem;
      font-weight: 600;
 }
 h2 {
      font-size: 28px;
+	font-size: 2.8rem;
      font-weight: 600;
 }
 h3 {
      font-size: 24px;
+	font-size: 2.4rem;
 }
 h4 {
      font-size: 20px;
+	font-size: 2rem;
 }
 h5 {
      font-size: 18px;
+	font-size: 1.8rem;
 }
 h6 {
      font-size: 14px;
+	font-size: 1.4rem;
 }
 /* ---------- 1.4 Common Classes ---------- */
 img.alignleft,
@@ -291,6 +296,7 @@ a.button:visited {
      font-weight: 400;
      text-transform: uppercase;
      font-size: 20px;
+	font-size: 2rem;
      margin-top: 10px;
 }
 button:hover,
@@ -332,13 +338,14 @@ th {
      position: relative;
      background-color: #ddd;
      font-size: 16px;
+	font-size: 1.6rem;
      text-align: left;
 }
 td {
      border: 1px solid #ccc;
      padding: 10px;
      position: relative;
-     font-size: 16px;
+     font-size: 1.6rem;
 }
 /* ========== 2.0 STRUCTURE / LAYOUT ========== */
 .site-container,
@@ -468,6 +475,7 @@ div.gform_wrapper form li {
 }
 h2.gsection_title {
      font-size: 24px;
+	font-size: 2.4rem;
      margin-bottom: 3px;
 }
 .gform_wrapper ul li.gfield {
@@ -484,6 +492,7 @@ h2.gsection_title {
 div.gform_wrapper label.gfield_label {
      color: #3b4445;
      font-size: 18px;
+	font-size: 1.8rem;
      font-weight: 600;
      float: left;
      width: 100%;
@@ -500,6 +509,7 @@ div.gform_wrapper textarea,
 div.gform_wrapper select,
 div.gform_wrapper .ginput_complex label {
      font-size: 16px;
+	font-size: 1.6rem;
      padding: 10px 15px;
      width: 100%;
      border: 1px solid #ddd;
@@ -589,6 +599,7 @@ div.gform_wrapper .gform_page_footer .button {
      color: #fff;
      border: none;
      font-size: 16px;
+	font-size: 1.6rem;
 }
 div.gform_wrapper .gform_footer .gform_button:hover,
 div.gform_wrapper .gform_page_footer .button:hover {
@@ -675,6 +686,7 @@ h3.gf_progressbar_title,
      background-color: rgba(255,255,255,0.4);
      line-height: 63px;
      font-size: 44px;
+	font-size: 4.4rem;
      border-radius: 50%;
      -webkit-transition: all 0.2s ease-in-out;
      -moz-transition: all 0.2s ease-in-out;
@@ -885,6 +897,7 @@ button.flickity-prev-next-button {
      padding: 0 15px;
      line-height: 60px;
      font-size: 18px;
+	font-size: 1.8rem;
 }
 .nav-primary ul.menu > li > a:hover {
      color: #000;
