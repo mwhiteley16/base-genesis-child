@@ -153,6 +153,8 @@ input {
 }
 p {
      margin-bottom: 20px;
+     font-size: 16px;
+     font-size: 1.6rem;
 }
 li,
 ol,
@@ -168,6 +170,10 @@ ul {
 .site-inner ul li,
 .site-inner ol li {
      margin-left: 40px;
+     margin-bottom: 7px;
+     font-size: 16px;
+     font-size: 1.6rem;
+   
 }
 .site-inner ul ul,
 .site-inner ol ol,
