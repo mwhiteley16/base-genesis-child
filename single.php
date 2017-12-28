@@ -3,7 +3,7 @@
 <section class="page-interior">
      <div class="interior-wrap">
           <div class="page-content">
-               <?php genesis_loop(); ?>
+               <?php do_action('genesis_loop'); ?>
           </div>
      </div>
 </section>
