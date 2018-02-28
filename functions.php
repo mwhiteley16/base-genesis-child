@@ -87,6 +87,15 @@ function wd_genesis_child_stylesheet() {
 	wp_enqueue_style( $theme_name, $stylesheet_uri, array(), $last_modified );
 }
 
+//* GENERIC -- Remove admin bar for non-admins
+add_action('after_setup_theme', 'wd_remove_admin_bar');
+ 
+function wd_remove_admin_bar() {
+	if (!current_user_can('administrator') && !is_admin()) {
+  		show_admin_bar(false);
+	}
+}
+
 /* ====================
 
 GENESIS FUNCTIONS
